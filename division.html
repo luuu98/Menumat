@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="	UTF-8">
+	<title>División de matrices</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	header
+	{
+		width: 100%;
+	}
+	header nav
+	{
+		background: yellow;
+	}
+	header nav ul
+	{
+		list-style: none;
+		overflow: hidden;
+	}
+	header nav ul li
+	{
+		float: left;;
+	}
+	header nav ul li
+	{
+		display: block;
+		padding: 20px;
+		color: black;
+		text-decoration: none;
+		font-family: sans-serif;
+	}
+	nav ul li a:hover
+	{
+		background: green;
+		color: white
+	}
+</style>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="suma.html">1.-Suma</a></li>
+				<li><a href="resta.html">2.-Resta</a></li>
+				<li><a href="multiplicacionmatrices.html">3.-Multiplicacion</a></li>
+				<li><a href="">4.-division</a></li>
+				<li><a href="matriz_transpuesta.html">5.-Transpuesta</a></li>
+				<li><a href="matrizporescalar.html">6.-Mult. por escalar</a></li>
+			</ul>
+		</nav>
+	</header>
+	<script>
+		var matriz = new  Array(2);
+		for(i=0; i<matriz.length; i++ )
+		{
+			matriz[i]= new Array(2);
+		}
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				matriz[i][j]=parseInt(prompt("Introduce los valores de la primera matriz["+i+"]["+j+"]"));
+			}
+		}
+		document.write("Matriz principal")
+		document.write("<br>")
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				document.write(matriz[i][j]+" ")
+			}
+			document.write("<br>")
+		}
+		var matrizdos = new  Array(2);
+		for(i=0; i<matrizdos.length; i++ )
+		{
+			matrizdos[i]= new Array(2);
+		}
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				matrizdos[i][j]=parseInt(prompt("Introduce los valores de la segunda matriz["+i+"]["+j+"]"));
+			}
+		}
+		document.write("Segunda matriz")
+		document.write("<br>")
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				document.write(matrizdos[j][i]+" ")
+			}
+			document.write("<br>")
+		}
+		det=0;
+		det=(matrizdos[0][0]+matrizdos[1][1])-(matrizdos[0][1]+matrizdos[1][0])
+		document.write("Determinante") 
+		document.write("<br>")	
+		document.write(det)
+		document.write("Seg. Matriz transpuesta")
+		document.write("<br>")
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				transpuestauno=0;
+				transpuestauno=matrizdos[j][i]
+				document.write(transpuestauno+" ")
+			}
+			document.write("<br>")
+		}
+		document.write("Segunda matriz transpuesta Adjunta")
+		document.write("<br>")
+		var matrizadjunta= new Array(2)
+		for(i=0; i<matrizadjunta.length; i++)
+		{
+			matrizadjunta[i]= new Array(2);
+		}
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				matrizadjunta[0][0]=matrizdos[1][1];
+				matrizadjunta[1][1]=matrizdos[0][0];
+				matrizadjunta[0][1]=matrizdos[0][1];
+				matrizadjunta[1][0]=matrizdos[1][0];
+				matrizadjunta[0][1]=(matrizadjunta[0][1]*-1)
+				matrizadjunta[1][0]=(matrizadjunta[1][0]*-1)
+			}
+		}
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				document.write(matrizadjunta[i][j]+" ")
+			}
+			document.write("<br>")
+		}
+		document.write("Matriz B inversa")
+		document.write("<br>")
+		var mbin = new Array(2);
+		for(i=0; i<mbin.legth; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				document.write(mbin[i][j]=matrizadjunta[i][j]/det)
+			}
+		}
+		for(i=0; i<2; i++)
+		{
+			for(j=0; j<2; j++)
+			{
+				document.write(mbin[i][j]+" ")
+			}
+			document.write("<br>")
+		}
+		document.write("Matrices divididas")
+		document.write("<br>")
+		var mdividi = new Array(2);
+		for(i=0; i<mdividi.length; i++)
+		{
+			mdividi[i]= new Array(2);
+		}
+		for(i=0; i<mdividi.length; i++)
+		{
+			for(j=0; j<mdividi.length; j++)
+			{
+				mdividi[i][j]=0;
+				for(s=0; s<mdividi.legth; s++)
+				{
+					mdividi[i][j]=(mdividi[i][j]+(matriz[i][j]+mbi[k][j]))
+				}
+			}
+		}
+		for(i=0; i<mdividi.length; i++)
+		{
+			for(j=0; j<mdividi.length; j++)
+			{
+				document.write(mdividi[i][j]+" ")
+			}
+			document.write("<br>")
+		}
+</script>
+
+</body>
+</html>
